@@ -33,6 +33,7 @@
 
 1. Open the Athena console
 2. From the **Database** pane on the left hand side, click **Create Table** drop down and select **Automatically**
+(If you do not see this dropdown then first click the 'here' button on the message on the top which explains you need to upgrade your Athena Data Catalog to a Glue Data Catalog)
 <br />![alt text](http://amazonathenahandson.s3-website-us-east-1.amazonaws.com/images/create_table_crawler.png)<br/>
 1. Enter a name for the crawler and select the IAM role we created in the previous section.  Click Next.
 2. Select the **Specify path in another account** radio button and enter **s3://serverless-analytics/canonical/NY-Pub/** for the S3 path.  Click Next.
