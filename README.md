@@ -308,7 +308,7 @@ On the next screen you will be able to share it with other users in your QuickSi
 Once you add them you can click 'Share' and it will send them an email saying a dashboard has been shared with them.  Also the next time they log into QuickSight they will see it in the list of dashboards they have access to.
 
 Great job!  You have just created your first dashboard to be shared with the rest of your team!
-
+<br />![alt text](/images/dash.png)<br/><br/>
 
 
 ## SPICE 
