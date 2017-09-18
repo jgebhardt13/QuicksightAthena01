@@ -233,20 +233,20 @@ Give it a name and choose 'Create Data Source'. Find the database you created ea
 
 Now we will join all the tables we had created in Athena by using the Glue data crawler.  Some tables join directly to the Orders table and some join to the Company table.  To join a table to something other than the first one we selected (Orders) drag and drop it on top of the table you want to join it to.  You will then need to define the join clauses - they will all be based on the key which is named after the dimension table you are trying to join.  When you are finished it should look soemthing like this (we will skip the Segment and Product tables as the crawler didn't pick up the headers correctly - we can correct this using a Glue ETL job, but for purposes of this lab we can just leave these two tables out of our new dataset):
 
-(image of joins)
+<br />![alt text](/images/b2b joins.PNG)<br/><br/>
 
 Before we start visualizing, lets also add a couple calculated fields to convert the date fields, order_date and ship_date to date fields rather than strings (normally we could just change the datatype in QuickSight in the data preview window, but Athena does not support this today.  It will soon, and you could do this for any other type of data source, but for Athena we will need to make calculated fields).  On the left side choose 'New Field' and then use the parseDate() function to convert the sting field to a date field.  Use these formulas for each calculated field:
 parseDate({order_date},'MM/dd/yyyy')
 parseDate({ship_date},'MM/dd/yyyy')
- (image of calcs)
+<br />![alt text](/images/calculated_dates.PNG)<br/><br/>
  
 Great, now we are ready to begin visualizing our data.  By default AutoGraph is chosen as the visual type, which will pick an appropriate visual type depending on the types of fields choose to visualize.  We can leave it like that for now, and later we will specify certain visual types.
 
 First click on 'sales' and we will get a KPI visual type.  Then click on the Field Wells on the top and use the pull down menu to choose 'Show As->Currency':
-(format image)
+<br />![alt text](/images/format_sales.PNG)<br/><br/>
 
 Now click on the 'Order Date' field.  Notice how our visual type automatically is changed to a line chart.  It will default to the Year level, but use the pull down menu on the Order Date field to choose 'Aggregate->Month', or you can do the same thing by clicking on the Order Date label on the x-axis:
-(month image)
+<br />![alt text](/images/month.PNG)<br/><br/>
 
 Next click the pull down menu on the segment field in the list of measures and choose 'Convert to dimension'.  Then find it in the list of dimensions and select it.  Now we will have 3 lines in our line chart, one per segment.  Expand the axis range on the bottom of the visual to see the whole trend:
 (image of convert field)
